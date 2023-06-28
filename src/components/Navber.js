@@ -1,42 +1,17 @@
 "use client";
+import { afterLogin, beforeLogin } from "@/data/navLinks";
+import useAuth from "@/lib/hooks/useAuth";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
 
-const navLinks = [
-  {
-    path: "/",
-    title: "Home",
-  },
-  {
-    path: "/about",
-    title: "About",
-  },
-  {
-    path: "/services",
-    title: "Services",
-  },
-  {
-    path: "/pricing",
-    title: "Pricing",
-  },
-  {
-    path: "/cars",
-    title: "Cars",
-  },
-  {
-    path: "/blog",
-    title: "Blog",
-  },
-  {
-    path: "/contact",
-    title: "Contact",
-  },
-];
 const NavBer = () => {
   const [menuOpen, setMenuOpen] = useState();
   const pathname = usePathname();
+  const { user } = useAuth();
+  const navLinks = user ? afterLogin : beforeLogin;
   return (
     <div>
       {/* desktop */}
@@ -59,6 +34,22 @@ const NavBer = () => {
               </li>
             );
           })}
+          {user && (
+            <div
+              style={{
+                border: "2px solid black",
+                borderRadius: "50%",
+                overflow: "hidden",
+              }}
+            >
+              <Image
+                src={user.photoURL}
+                width={40}
+                height={40}
+                alt="user_img"
+              />
+            </div>
+          )}
         </ul>
         <div
           onClick={() => setMenuOpen(!menuOpen)}

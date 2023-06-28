@@ -1,7 +1,9 @@
+import Providers from "@/lib";
 import "./globals.css";
-import { Inter } from "next/font/google";
+import { DM_Serif_Display } from "next/font/google";
+import NavBer from "@/components/Navber";
 
-const inter = Inter({ subsets: ["latin"] });
+const DM_Serif = DM_Serif_Display({ subsets: ["latin"], weight: "400" });
 
 export const metadata = {
   title: "Home || Shariatpur-rent-a-car",
@@ -11,7 +13,15 @@ export const metadata = {
 const RootLayout = ({ children }) => {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={DM_Serif.className}>
+        <Providers>
+          <div className="">
+            <NavBer></NavBer>
+            <div className=" md:min-h-[calc(100vh-100px)]">{children}</div>
+            <div>footer</div>
+          </div>
+        </Providers>
+      </body>
     </html>
   );
 };

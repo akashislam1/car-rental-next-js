@@ -73,7 +73,7 @@ const PickForm = () => {
 
       <button
         type="submit"
-        className="bg-[#01d28e] text-white font-medium py-2 px-4 rounded-md"
+        className="bg-[#01d28e] hover:bg-[#03bb7e] duration-300 text-white font-medium py-2 px-4 rounded-md"
       >
         Rent A Car Now
       </button>

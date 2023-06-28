@@ -6,7 +6,7 @@ import car from "@/pictures/car-rental.png";
 const PickUp = () => {
   return (
     <div className="flex flex-col md:flex-row justify-center  min-h-screen -mt-28 z-50 ">
-      <div className="w-[400px]">
+      <div className="md:w-[400px] px-3 md:px-0">
         <PickForm></PickForm>
       </div>
       <div className="py-20 space-y-10 px-3 md:px-0">
